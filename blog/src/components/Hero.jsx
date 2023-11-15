@@ -1,7 +1,7 @@
 import { useTheme } from "../context/ThemeContext";
 
 function Hero() {
-  const { theme } = useTheme("");
+  const { theme } = useTheme();
 
   return (
     <section
