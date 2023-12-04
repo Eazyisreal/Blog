@@ -1,7 +1,9 @@
-import { useTheme } from "../context/ThemeContext";
-import Image from "../assets/icons/Image.svg";
 import Arrow from "../assets/icons/arrowD.svg";
 import ArrowW from "../assets/icons/arrowW.svg";
+import Image from "../assets/icons/Image.svg";
+import { Link } from "react-router-dom";
+import { useTheme } from "../context/ThemeContext";
+
 const blogDetails = [
   {
     title: "How to use React Context API",
@@ -64,11 +66,12 @@ export default function BlogPost() {
 
   return (
     <section
+    id='blog'
       className={`${
         theme === "dark" ? "bg-primary" : "bg-secondary"
-      } flex flex-col  py-[1.875rem] px-[4rem] `}
+      } flex flex-col  py-[1.875rem] lg:px-[4rem] `}
     >
-      <div className="flex flex-col gap-[1.875rem] py-0 px-8 items-start">
+      <div className="flex flex-col gap-[1.875rem] py-0 px-4 lg:px-8 items-start">
         <div className="flex flex-col items-start gap-8">
           <h1
             className={` inter text-2xl font-semibold ${
@@ -77,9 +80,9 @@ export default function BlogPost() {
           >
             All blog posts
           </h1>
-          <div className="grid grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogDetails.map((item) => (
-              <div key={item.title} className="flex flex-col gap-4">
+              <Link to={`/blog/${item.id}`}  key={item.title} className="flex flex-col gap-4">
                 <img src={item.image} alt={item.title} />
                 <div className="flex  flex-col gap-3">
                   <h3
@@ -108,7 +111,7 @@ export default function BlogPost() {
                     {item.tag}
                   </button>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
           <hr

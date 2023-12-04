@@ -1,18 +1,12 @@
 import "./App.css";
 
-import Header from './components/Header';
-import Hero from './components/Hero';
-import BlogHeader from './components/BlogHeader';
-import BlogPost from './components/BlogPost';
-import Footer from './components/Footer';
+import AppRouter from "./routes/Approutes";
+import { BrowserRouter as Router } from "react-router-dom";
+
 export default function App() {
   return (
-      <section>
-        <Header />
-        <Hero />
-        <BlogHeader/>
-        <BlogPost/>
-        <Footer />
-      </section>
+    <Router>
+      <AppRouter />
+    </Router>
   );
 }

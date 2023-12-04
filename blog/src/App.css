@@ -63,3 +63,14 @@
   .theme-toggle input:checked + .slider .slider-image {
     transform: translateX(30px); 
   }
+
+
+  *::-webkit-scrollbar {
+    width: 0.25rem;
+    background-color: #fff;
+  }
+  *::-webkit-scrollbar-thumb {
+    background-color: #090D1F;
+    border-radius: 1.2rem;
+    width: .25rem;
+  }

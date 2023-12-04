@@ -7,7 +7,7 @@ export default function Footer() {
     <footer
       className={`${
         theme === "dark" ? "bg-primary" : "bg-secondary"
-      } flex gap-8  py-[1.875rem] px-[4rem] `}
+      } flex flex-col-reverse items-center sm:flex-row sm:items-start gap-8  py-[1.875rem] w-full px-2 sm:px-[4rem] `}
     >
       <section className="flex  items-start gap-[.875rem]">
         <h1
@@ -18,23 +18,23 @@ export default function Footer() {
           © 2023
         </h1>
       </section>
-      <ul className="flex gap-[.875rem]">
+      <ul className="flex flex-col sm:flex-row gap-[.875rem]">
         <li
-          className={` inter text-2xl font-semibold ${
+          className={` inter sm:text-2xl font-semibold ${
             theme === "dark" ? "text-secondary" : "text-primary"
           }`}
         >
           Twitter
         </li>
         <li
-          className={` inter text-2xl font-semibold ${
+          className={` inter sm:text-2xl font-semibold ${
             theme === "dark" ? "text-secondary" : "text-primary"
           }`}
         >
           LinkedIn
         </li>
         <li
-          className={` inter text-2xl font-semibold ${
+          className={` inter sm:text-2xl font-semibold ${
             theme === "dark" ? "text-secondary" : "text-primary"
           }`}
         >
