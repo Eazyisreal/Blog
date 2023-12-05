@@ -1,9 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 
+import About from "../pages/About";
 import BlogDetails from "../pages/BlogDetails";
 import Home from "../pages/Home";
-import About from "../pages/About";
-
 
 export default function Router() {
   return (
@@ -11,7 +10,7 @@ export default function Router() {
       <Routes>
         <Route path="/" element={<Home />} exact />
         <Route path="/about" element={<About />} exact />
-        <Route path="/blog/:id" element={<BlogDetails />}/>
+        <Route path="/blog/:slug" element={<BlogDetails />}/>
       </Routes>
     </>
   );
