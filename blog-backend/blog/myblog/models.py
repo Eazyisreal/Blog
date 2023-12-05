@@ -1,9 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
 
-
-
-
 class Post(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
