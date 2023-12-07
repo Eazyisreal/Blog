@@ -4,7 +4,7 @@ from .models import *
 from .serializers import PostSerializer
 
 class PostList(generics.ListCreateAPIView):
-    queryset = Post.objects.all()
+    queryset = Post.objects.all().order_by('-pub_date')
     serializer_class = PostSerializer
 
 class PostDetail(generics.RetrieveUpdateDestroyAPIView):
