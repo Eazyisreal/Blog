@@ -41,7 +41,7 @@ export default function Header() {
           </h1>
         </Link>
         <ul className="hidden sm:flex gap-[.875rem]">
-          <Link onClick={handleScrollToBlog}>
+          <Link to='/#blog' onClick={handleScrollToBlog}>
             <li
               className={`${theme === "dark"
                 ? "text-secondary  hover:text-secondary"
@@ -51,14 +51,14 @@ export default function Header() {
               Blog
             </li>
           </Link>
-          <li
+          {/* <li
             className={`${theme === "dark"
               ? "text-secondary hover:text-secondary"
               : "text-[#1A1A1A] hover:text-primary"
               }  text-opacity-50  hover:underline inter text-xl font-bold`}
           >
             Projects
-          </li>
+          </li> */}
           <Link to='/about'>
               <li
                 className={`${theme === "dark"

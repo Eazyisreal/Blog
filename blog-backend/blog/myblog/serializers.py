@@ -13,6 +13,7 @@ class PostSerializer(serializers.ModelSerializer):
     tags = serializers.CharField(max_length=50, required=False)
     comments = CommentSerializer(many=True, required=False)
 
+
     class Meta:
         model = Post
         fields = '__all__'
@@ -41,7 +42,6 @@ class PostSerializer(serializers.ModelSerializer):
         tags_data = validated_data.get('tags', [])
         comments_data = validated_data.get('comments', [])
 
-        # Assuming you want to overwrite existing tags and comments
         instance.tags.all().delete()
         instance.comments.all().delete()
 

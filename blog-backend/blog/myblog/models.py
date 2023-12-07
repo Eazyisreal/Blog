@@ -10,7 +10,6 @@ class Post(models.Model):
     description = models.TextField(default='')
     image = models.ImageField(upload_to='post_images/', null=True, blank=True)
     slug = models.SlugField(unique=True, max_length=255, blank=True, null=True) 
-    
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)
