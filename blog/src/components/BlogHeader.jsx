@@ -16,7 +16,7 @@ export default function BlogHeader() {
     axios.get('http://localhost:8000/api/posts/')
       .then(response => {
         setBlogPost(response.data);
-        setLoading(false);
+        setLoading(false);        
       })
       .catch(error => {
         console.error('Error fetching posts:', error);
@@ -24,6 +24,11 @@ export default function BlogHeader() {
       });
   }, []);
 
+const formatDate = (dateString) => {
+  const options = { day: 'numeric', month: 'long', year: 'numeric', hour: 'numeric', minute: 'numeric' };
+  const date = new Date(dateString);
+  return new Intl.DateTimeFormat('en-US', options).format(date);
+};
 
   const renderBlogPost = (blogPost) => (
     <Link to={`/blog/${blogPost.slug}`} key={blogPost.title} className={`flex w-full flex-col gap-8 `}>
@@ -32,7 +37,7 @@ export default function BlogHeader() {
         <h3
           className={`inter text-[.875rem] flex font-semibold text-[#6941C6]`}
         >
-          {blogPost.date}
+          {formatDate(blogPost.pub_date)}
         </h3>
         <div className="flex w-full justify-between">
           <h1
@@ -50,7 +55,7 @@ export default function BlogHeader() {
           {blogPost.description}
         </h2>
         <button className="flex py-[.125rem] px-[.625rem] w-[6rem] justify-center items-center rounded-2xl bg-[#F9F5FF]">
-          {blogPost.tag}
+          {blogPost.tags}
         </button>
       </div>
     </Link>
@@ -85,7 +90,8 @@ export default function BlogHeader() {
                         <h3
                           className={`inter text-[.875rem] flex font-semibold text-[#6941C6]`}
                         >
-                          {blogPost.date}
+                          {formatDate(blogPost.pub_date)}
+
                         </h3>
                         <div className="flex w-full justify-between">
                           <h1
@@ -103,7 +109,7 @@ export default function BlogHeader() {
                           {blogPost.description}
                         </h2>
                         <button className="flex py-[.125rem] px-[.625rem] w-[6rem] justify-center items-center rounded-2xl bg-[#F9F5FF]">
-                          {blogPost.tag}
+                          {blogPost.tags}
                         </button>
                       </div>
                     </Link>
@@ -124,7 +130,8 @@ export default function BlogHeader() {
                   <h3
                     className={`inter text-[.875rem] flex font-semibold text-[#6941C6]`}
                   >
-                    {blogPost.date}
+                    {formatDate(blogPost.pub_date)}
+
                   </h3>
                   <div className="flex w-full justify-between">
                     <h1
@@ -142,7 +149,7 @@ export default function BlogHeader() {
                     {blogPost.description}
                   </h2>
                   <button className="flex py-[.125rem] px-[.625rem] w-[6rem] justify-center items-center rounded-2xl bg-[#F9F5FF]">
-                    {blogPost.tag}
+                    {blogPost.tags}
                   </button>
                 </div>
               </Link>
@@ -160,7 +167,7 @@ export default function BlogHeader() {
               <h3
                 className={`inter text-[.875rem] flex font-semibold text-[#6941C6]`}
               >
-                {blogPost.date}
+                {formatDate(blogPost.pub_date)}
               </h3>
               <div className="flex w-full justify-between">
                 <h1
@@ -178,7 +185,7 @@ export default function BlogHeader() {
                 {blogPost.description}
               </h2>
               <button className="flex py-[.125rem] px-[.625rem] w-[6rem] justify-center items-center rounded-2xl bg-[#F9F5FF]">
-                {blogPost.tag}
+                {blogPost.tags}
               </button>
             </div>
           </Link>

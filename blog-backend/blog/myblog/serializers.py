@@ -1,18 +1,16 @@
 from rest_framework import serializers
 from .models import *
 
-class TagSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Tag
-        fields = '__all__'
+
 
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Comments
+        model = Comment
         fields = '__all__'
 
+
 class PostSerializer(serializers.ModelSerializer):
-    tags = TagSerializer(many=True, required=False)
+    tags = serializers.CharField(max_length=50, required=False)
     comments = CommentSerializer(many=True, required=False)
 
     class Meta:
@@ -29,7 +27,7 @@ class PostSerializer(serializers.ModelSerializer):
             Tag.objects.create(post=post, **tag_data)
 
         for comment_data in comments_data:
-            Comments.objects.create(post=post, **comment_data)
+            Comment.objects.create(post=post, **comment_data)
 
         return post
 
@@ -51,9 +49,6 @@ class PostSerializer(serializers.ModelSerializer):
             Tag.objects.create(post=instance, **tag_data)
 
         for comment_data in comments_data:
-            Comments.objects.create(post=instance, **comment_data)
+            Comment.objects.create(post=instance, **comment_data)
 
         return instance
-
-    def delete(self, instance):
-        instance.delete()

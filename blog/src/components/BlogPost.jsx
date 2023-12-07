@@ -24,6 +24,12 @@ export default function BlogPost() {
       });
   }, []);
 
+  const formatDate = (dateString) => {
+    const options = { day: 'numeric', month: 'long', year: 'numeric', hour: 'numeric', minute: 'numeric' };
+    const date = new Date(dateString);
+    return new Intl.DateTimeFormat('en-US', options).format(date);
+  };
+
   return (
     <section
       id='blog'
@@ -42,12 +48,12 @@ export default function BlogPost() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {blogDetails.map((item) => (
                 <Link to={`/blog/${item.slug}`} key={item.title} className="flex flex-col gap-4">
-                  <img src={item.image} alt={item.title} />
+                  <img className='w-full h-1/2' src={item.image} alt={item.title} />
                   <div className="flex  flex-col gap-3">
                     <h3
                       className={`inter text-[.875rem] flex font-semibold text-[#6941C6]`}
                     >
-                      {item.date}
+                     {formatDate(item.pub_date)}
                     </h3>
                     <div className="flex w-full justify-between">
                       <h1
@@ -64,8 +70,8 @@ export default function BlogPost() {
                     >
                       {item.description}
                     </h2>
-                    <button className="flex py-[.125rem] px-[.625rem] w-[6rem] justify-center items-center rounded-2xl bg-[#F9F5FF]">
-                      {item.tag}
+                    <button className="flex py-[.125rem] px-[.625rem] w-[8rem] justify-center items-center rounded-2xl bg-[#F9F5FF]">
+                      {item.tags}
                     </button>
                   </div>
                 </Link>

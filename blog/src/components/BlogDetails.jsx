@@ -42,6 +42,12 @@ export default function BlogDetails() {
             });
     }, [slug]);
     
+
+    const formatDate = (dateString) => {
+        const options = { day: 'numeric', month: 'long', year: 'numeric', hour: 'numeric', minute: 'numeric' };
+        const date = new Date(dateString);
+        return new Intl.DateTimeFormat('en-US', options).format(date);
+      };
     
 
     return (
@@ -51,12 +57,12 @@ export default function BlogDetails() {
                     {loadingList ? (
                         <LoadingSpinner />
                     ) : (
-                        blogList.map(item => (
+                        blogList.reverse().map(item => (
                             <Link to={`/blog/${item.slug}`} key={item.title} className="flex flex-col gap-4">
                                 <img src={item.image} alt={item.title} />
                                 <div className="flex  flex-col gap-3">
                                     <h3 className={`inter text-[.875rem] flex font-semibold text-[#6941C6]`}>
-                                        {item.date}
+                                    {formatDate(item.pub_date)}
                                     </h3>
                                     <div className="flex w-full justify-between">
                                         <h1 className={`inter text-[1.125rem] font-semibold ${theme === "dark" ? "text-secondary" : "text-[#1A1A1A]"} `}>
@@ -68,7 +74,7 @@ export default function BlogDetails() {
                                         {item.description}
                                     </h2>
                                     <button className="flex py-[.125rem] px-[.625rem] w-[6rem] justify-center items-center rounded-2xl bg-[#F9F5FF]">
-                                        {item.tag}
+                                        {item.tags}
                                     </button>
                                 </div>
                             </Link>
@@ -82,17 +88,14 @@ export default function BlogDetails() {
                     ) : (
                         <Link to={`/blog/${blogDetails.slug}`} key={blogDetails.title} className="flex w-full flex-col gap-4">
                             <h3 className={`inter text-[.875rem] flex font-semibold text-[#6941C6]`}>
-                                {blogDetails.date}
+                            {formatDate(blogDetails.pub_date)}
                             </h3>
                             <h1 className={`inter text-[1.125rem] font-semibold ${theme === "dark" ? "text-secondary" : "text-[#1A1A1A]"} `}>
                                 {blogDetails.title}
                             </h1>
-                            <img src={blogDetails.image} alt={blogDetails.title} />
+                            <img className='h-1/2' src={blogDetails.image} alt={blogDetails.title} />
                             <h2 className={`inter text-base ${theme === "dark" ? "text-[#C0C5D0]" : "text-[#667085]"} `}>
-                                {blogDetails.description}
-                            </h2>
-                            <h2 className={`inter text-base ${theme === "dark" ? "text-[#C0C5D0]" : "text-[#667085]"} `}>
-                                {blogDetails.description}
+                                {blogDetails.content}
                             </h2>
                         </Link>
                     )}
