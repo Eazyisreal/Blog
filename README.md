@@ -19,20 +19,15 @@ CodeGist serves as a platform for documenting my personal experiences, challenge
 This repository contains the source code for the CodeGist web application. With a sleek and user-friendly design, the application is built using React, Tailwind CSS, React Router, Django, Django REST framework, PostgreSQL, Ckeditor.
 
 ## Features
+- Home Page: The landing page welcomes visitors with a clean and intuitive design, offering easy navigation to different sections of the blog. It showcases the latest blog posts, providing a glimpse into the diverse content available.
 
-1. **Home Page**: A visually appealing landing page that introduces users to This Tech Thing and its purpose. It provides a brief overview of the community and showcases testimonials from satisfied mentees and mentors.
+- Blog Post Page: A dedicated page that displays individual blog posts. Users can explore a wealth of content, ranging from insightful articles to in-depth tutorials. Each post is presented in a reader-friendly format, making the blog a valuable resource.
 
-2. **Mentor Page**: This section allows mentors to create profiles, providing details about their areas of expertise, experience, and availability. Mentors can showcase their skills and offer mentorship to interested mentees.
+- Blog Details Page: Dive deeper into specific blog posts with the blog details page. This feature allows users to view full content, including rich text, images, and other multimedia elements. Readers can engage with comments and share their thoughts on each post.
 
-3. **Mentee Page**: Aspiring mentees can browse through the profiles of mentors and select those who align with their goals and interests. They can explore mentor profiles, view their availability, and request mentorship from specific mentors.
+- About Page: Get to know more about the blogger and the inspiration behind the blog. The About page provides insights into the author's background, expertise, and the mission of the blog. It establishes a personal connection with the audience.
 
-4. **About Us**: This page provides information about This Tech Thing, including its mission, values, and team members. It offers transparency and builds trust with the community.
-
-5. **Blog**: An interactive blog platform where mentors and mentees can share their experiences, insights, and knowledge with the wider community. Users can read, comment, and engage with the blog posts.
-
-6. **Mentee Application**: A dedicated page for mentees to apply for mentorship. Mentees can fill out an application form, providing information about their background, goals, and areas of interest. This information helps mentors in understanding mentees' requirements.
-
-7. **Mentor Application**: Potential mentors can submit their applications through this page. They can provide details about their professional experience, expertise, and preferred mentorship approach. The information shared assists in connecting them with mentees who align with their skills.
+- Theme Toggle Feature: Enhance the reading experience with a theme toggle feature. Users can choose between light and dark modes to suit their preferences. This customization option adds a touch of personalization and ensures optimal readability in various environments.
 
 ## Technologies Used
 
