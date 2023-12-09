@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     # third party apps
     'myblog',
@@ -52,6 +53,7 @@ CKEDITOR_UPLOAD_PATH = 'uploads/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -133,20 +135,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-# Wagtail
-WAGTAIL_SITE_NAME = 'Eazyisreal Blog'
-# WAGTAILADMIN_BASE_URL = 'http://example.com'
 
 
 JAZZMIN_SETTINGS = {
@@ -181,7 +180,7 @@ JAZZMIN_SETTINGS = {
     "copyright": "Acme Library Ltd",
 
     # List of model admins to search from the search bar, search bar omitted if excluded
-    # If you want to use a single search field you dont need to use a list, you can use a simple string 
+    # If you want to use a single search field you dont need to use a list, you can use a simple string
     "search_model": ["auth.User", "auth.Group"],
 
     # Field name on user model that contains avatar ImageField/URLField/Charfield or a callable that receives the user
@@ -195,10 +194,12 @@ JAZZMIN_SETTINGS = {
     "topmenu_links": [
 
         # Url that gets reversed (Permissions can be added)
-        {"name": "Home",  "url": "admin:index", "permissions": ["auth.view_user"]},
+        {"name": "Home",  "url": "admin:index",
+            "permissions": ["auth.view_user"]},
 
         # external url that opens in a new window (Permissions can be added)
-        {"name": "Support", "url": "https://github.com/farridav/django-jazzmin/issues", "new_window": True},
+        {"name": "Support", "url": "https://github.com/farridav/django-jazzmin/issues",
+            "new_window": True},
 
         # model admin to link to (Permissions checked against model)
         {"model": "auth.User"},
@@ -213,7 +214,8 @@ JAZZMIN_SETTINGS = {
 
     # Additional links to include in the user menu on the top right ("app" url type is not allowed)
     "usermenu_links": [
-        {"name": "Support", "url": "https://github.com/farridav/django-jazzmin/issues", "new_window": True},
+        {"name": "Support", "url": "https://github.com/farridav/django-jazzmin/issues",
+            "new_window": True},
         {"model": "auth.user"}
     ],
 
