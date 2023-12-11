@@ -3,7 +3,7 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
-
+.nnn
 # Local configuration file (if you're using a tool like pyenv or virtualenv)
 .python-version
 .venv
