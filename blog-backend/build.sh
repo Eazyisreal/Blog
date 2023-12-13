@@ -4,5 +4,4 @@ pip install --upgrade pip==23.3.1
 
 pip install -r requirements.txt
 
-gunicorn blog.wsgi:application -b 0.0.0.0:80
-
+gunicorn blog.wsgi
