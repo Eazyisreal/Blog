@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 import os
 from decouple import config
-
+import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -64,7 +64,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
+    "http://localhost:5173", "https://code-gist.vercel.app"
 ]
 
 ROOT_URLCONF = 'blog.urls'
@@ -98,6 +98,8 @@ DATABASES = {
         'PORT': config('DB_PORT'),
     }
 }
+
+DATABASES['default'] = dj_database_url.parse("postgres://code_gist_postgres_user:xOf6eufr56Dq9j829mF0VmZ8mHYj3eKe@dpg-cmj7rf5a73kc739oq3n0-a.oregon-postgres.render.com/code_gist_postgres")
 
 
 # Password validation
