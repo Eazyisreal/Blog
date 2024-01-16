@@ -64,9 +64,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173", 
     "https://code-gist.vercel.app", 
-    "https://blog-jofk7y6lk-eazyisreal.vercel.app"
 ]
 
 
