@@ -12,7 +12,7 @@ function Hero() {
         <hr className={`w-full ${theme  === "dark" ? 'bg-secondary' : 'bg-primary'}`} />
 
         <h1 className={`${theme  === "dark" ? 'text-secondary' : 'text-primary'} inter whitespace-nowrap text-[4.5rem] sm:text-[9rem] lg:text-[12.235rem]  font-bold`}>
-          THE BLOG
+         Code Gist
         </h1>
         <hr className={`w-full ${theme  === "dark" ? 'bg-secondary' : 'bg-primary'}`} />
       </div>
