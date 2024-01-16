@@ -17,7 +17,7 @@ export default function BlogDetails() {
     
 
     useEffect(() => {
-        axios.get('http://localhost:8000/api/posts/')
+        axios.get('https://codegist.onrender.com/api/posts')
             .then(response => {
                 setBlogList(response.data);
                 setLoadingList(false);
@@ -30,7 +30,7 @@ export default function BlogDetails() {
     }, []);
 
     useEffect(() => {
-        const apiUrl = `http://localhost:8000/api/posts/${slug}/`;    
+        const apiUrl = `https://codegist.onrender.com/api/posts/${slug}/`;    
         axios.get(apiUrl)
             .then(response => {
                 setBlogDetails(response.data);

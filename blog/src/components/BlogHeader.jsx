@@ -13,7 +13,7 @@ export default function BlogHeader() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get('http://localhost:8000/api/posts/')
+    axios.get('https://codegist.onrender.com/api/posts/')
       .then(response => {
         setBlogPost(response.data);
         setLoading(false);        
