@@ -89,17 +89,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'blog.wsgi.application'
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASSWORD'),
-        'HOST': config('DB_HOST'),
-        'PORT': config('DB_PORT'),
-    }
-}
-
 DATABASES['default'] = dj_database_url.parse("postgres://code_gist_postgres_user:xOf6eufr56Dq9j829mF0VmZ8mHYj3eKe@dpg-cmj7rf5a73kc739oq3n0-a.oregon-postgres.render.com/code_gist_postgres")
 
 
@@ -211,34 +200,7 @@ JAZZMIN_SETTINGS = {
         {"app": "books"},
     ],
 
-    #############
-    # User Menu #
-    #############
-
-    # Additional links to include in the user menu on the top right ("app" url type is not allowed)
-    "usermenu_links": [
-        {"name": "Support", "url": "https://github.com/farridav/django-jazzmin/issues",
-            "new_window": True},
-        {"model": "auth.user"}
-    ],
-
-    #############
-    # Side Menu #
-    #############
-
+    
     # Whether to display the side menu
     "show_sidebar": True,
-
-    # Whether to aut expand the menu
-    "navigation_expanded": True,
-
-    # Hide these apps when generating side menu e.g (auth)
-    "hide_apps": [],
-
-    # Hide these models when generating side menu (e.g auth.user)
-    "hide_models": [],
-
-    # List of apps (and/or models) to base side menu ordering off of (does not need to contain all apps/models)
-    "order_with_respect_to": ["auth", "books", "books.author", "books.book"],
-
 }
