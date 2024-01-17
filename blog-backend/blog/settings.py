@@ -87,7 +87,16 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'blog.wsgi.application'
-
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
+    }
+}
 
 DATABASES['default'] = dj_database_url.parse("postgres://code_gist_postgres_user:xOf6eufr56Dq9j829mF0VmZ8mHYj3eKe@dpg-cmj7rf5a73kc739oq3n0-a.oregon-postgres.render.com/code_gist_postgres")
 
